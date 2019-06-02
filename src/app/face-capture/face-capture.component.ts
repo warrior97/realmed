@@ -1,9 +1,12 @@
-import { Component, OnInit, Output,EventEmitter} from '@angular/core';
+import { Component, OnInit, Output,EventEmitter, NgModule} from '@angular/core';
 import {Subject} from 'rxjs';
 import {Observable} from 'rxjs';
 import {WebcamImage, WebcamInitError, WebcamUtil} from 'ngx-webcam';
 
 
+@NgModule({
+  exports:[FaceCaptureComponent]
+})
 @Component({
   selector: 'app-face-capture',
   templateUrl: './face-capture.component.html',
@@ -57,8 +60,10 @@ export class FaceCaptureComponent implements OnInit {
   }
 
   public handleImage(webcamImage: WebcamImage): void {
-    console.info('received webcam image', webcamImage);
+    //console.info('received webcam image', webcamImage);
+    console.log(webcamImage.imageAsBase64);
     this.pictureTaken.emit(webcamImage);
+
   }
 
   public cameraWasSwitched(deviceId: string): void {
@@ -73,4 +78,5 @@ export class FaceCaptureComponent implements OnInit {
   public get nextWebcamObservable(): Observable<boolean|string> {
     return this.nextWebcam.asObservable();
   }
+  
 }
