@@ -1,3 +1,10 @@
-<p>
-  face-display works!
-</p>
+
+  <div *ngIf="person">
+    <table>
+      <tr><td><p>Name:</p></td><td>{{person.name}}</td></tr>
+      <tr><td><p>Age:</p></td><td>{{person.age}}</td></tr>
+   <tr><td colspan="2"> <img [src]="person.image" /></td></tr>
+
+  </table>
+  </div>
+

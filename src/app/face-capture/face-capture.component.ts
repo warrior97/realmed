@@ -15,7 +15,7 @@ import {WebcamImage, WebcamInitError, WebcamUtil} from 'ngx-webcam';
 export class FaceCaptureComponent implements OnInit {
 
   @Output()
-  public pictureTaken = new EventEmitter<WebcamImage>();
+  pictureTaken = new EventEmitter<WebcamImage>();
 
   // toggle webcam on/off
   public showWebcam = true;
@@ -61,7 +61,7 @@ export class FaceCaptureComponent implements OnInit {
 
   public handleImage(webcamImage: WebcamImage): void {
     //console.info('received webcam image', webcamImage);
-    console.log(webcamImage.imageAsBase64);
+    //console.log(webcamImage.imageAsBase64);
     this.pictureTaken.emit(webcamImage);
 
   }
