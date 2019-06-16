@@ -1,8 +1,15 @@
 <div>
-    <div class="section">
+   <!-- <div class="section">
         <app-face-capture (pictureTaken)="childEventClicked($event)"></app-face-capture>
-    </div>
+    </div>-->
+    <!--<app-face-add></app-face-add>
     <div class="section">
         <app-face-display [person]="person"></app-face-display>
     </div>
+-->
+<div>
+    <a routerLink="/face-add" >Add Face</a>
+    <a routerLink="/face-show">Show Face</a>
+</div>
+<router-outlet></router-outlet>
 </div>

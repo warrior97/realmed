@@ -1,0 +1,11 @@
+<form>
+  <table>
+    <tr><td>Name:</td><td><input name="name" [(ngModel)]="name" type="text" required></td></tr>
+    <tr><td>Age:</td><td><input name="age" [(ngModel)]="age" type="number" required></td></tr>
+    <tr><td>Image:</td><td><input type='file' (change)="onSelectFile($event)" required></td></tr> 
+    <tr><td colspan="2" *ngIf="url!==null"><img  [src]="url" height="200"></td></tr>
+    <tr><td colspan="2"><button (click)="addUser()" >Dodaj korisnika</button></td></tr>
+  </table>
+
+
+</form>
