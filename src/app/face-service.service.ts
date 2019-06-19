@@ -68,14 +68,14 @@ export class FaceServiceService {
     let fdo;
     await this.detectFaceFile(image,person).toPromise().then(response=>{
       fdo=<FaceDetectObject>response.body;
-     
+      console.log(response);
     }
     ,error=>{console.log(error);return false;});
     if(fdo.faces.length>0){
       let f=<Face>fdo.faces[0];
       
       await this.addFace(f.face_token,person).toPromise().then(response=>{
-       
+        console.log(response);
       },error=>{console.log(error);});
       await this.setUserId(f.face_token,person.id).toPromise().then(res=>{
         console.log(res);

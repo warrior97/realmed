@@ -22,7 +22,7 @@ export class FaceAddComponent implements OnInit {
 
   constructor(private http:HttpClient,private pds:PersonDataService,private fss:FaceServiceService) { }
 
-  url: string;
+  url: string='images/profile.png';
   name:string;
   age:number;
   data:File;
@@ -34,10 +34,9 @@ export class FaceAddComponent implements OnInit {
     per.age=this.age;
     console.log(per);
     this.pds.uploadImage(this.data).toPromise().then(res => {
-      per.image='/assets/'+res.name;
+      per.image='/images/'+res.name;
       console.log(per);
       this.pds.insertPerson(per).toPromise().then(response=>{
-        per.id=3; 
     if(per.id!=-1){
       let result=this.fss.addFaceImageFile(this.data,per);
       
